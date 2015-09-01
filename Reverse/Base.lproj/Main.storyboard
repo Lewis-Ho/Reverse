@@ -21,6 +21,9 @@
                                 <state key="normal" image="Mic">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="150" y="250" width="100" height="101"/>
+                                </variation>
                                 <connections>
                                     <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSh-kD-ARV"/>
                                 </connections>
@@ -30,7 +33,22 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="161" y="391" width="79" height="20.5"/>
+                                </variation>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yl0-iG-feW">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" ambiguous="YES">
+                                    <rect key="frame" x="150" y="462" width="100" height="100"/>
+                                </variation>
+                                <connections>
+                                    <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMc-ct-5Nu"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -39,12 +57,15 @@
                             <constraint firstAttribute="centerY" secondItem="ujG-DL-HQT" secondAttribute="centerY" constant="-101.5" id="OFv-I6-ELi">
                                 <variation key="widthClass=compact" constant="-102"/>
                             </constraint>
+                            <constraint firstAttribute="centerX" secondItem="Yl0-iG-feW" secondAttribute="centerX" id="bOh-bP-k4X"/>
                             <constraint firstAttribute="centerY" secondItem="G4f-lc-iz0" secondAttribute="centerY" id="d7k-4c-1Qb"/>
                             <constraint firstItem="ujG-DL-HQT" firstAttribute="top" secondItem="G4f-lc-iz0" secondAttribute="bottom" constant="41" id="lg7-b7-zzL"/>
+                            <constraint firstItem="Yl0-iG-feW" firstAttribute="top" secondItem="ujG-DL-HQT" secondAttribute="bottom" constant="50.5" id="tSW-Hw-HSX"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="ujG-DL-HQT"/>
+                                <exclude reference="Yl0-iG-feW"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="Amr-Yp-LFB"/>
@@ -52,11 +73,14 @@
                                 <exclude reference="NFu-DV-nPt"/>
                                 <exclude reference="OFv-I6-ELi"/>
                                 <exclude reference="lg7-b7-zzL"/>
+                                <exclude reference="bOh-bP-k4X"/>
+                                <exclude reference="tSW-Hw-HSX"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
                                 <include reference="ujG-DL-HQT"/>
+                                <include reference="Yl0-iG-feW"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="Amr-Yp-LFB"/>
@@ -64,6 +88,8 @@
                                 <include reference="NFu-DV-nPt"/>
                                 <include reference="OFv-I6-ELi"/>
                                 <include reference="lg7-b7-zzL"/>
+                                <include reference="bOh-bP-k4X"/>
+                                <include reference="tSW-Hw-HSX"/>
                             </mask>
                         </variation>
                     </view>
@@ -77,5 +103,6 @@
     </scenes>
     <resources>
         <image name="Mic" width="100" height="100"/>
+        <image name="Stop" width="100" height="100"/>
     </resources>
 </document>
