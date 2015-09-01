@@ -30,15 +30,15 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="161" y="391" width="79" height="21"/>
-                                </variation>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="G4f-lc-iz0" secondAttribute="centerX" id="Amr-Yp-LFB"/>
-                            <constraint firstAttribute="centerY" secondItem="ujG-DL-HQT" secondAttribute="centerY" constant="-101.5" id="OFv-I6-ELi"/>
+                            <constraint firstAttribute="centerX" secondItem="ujG-DL-HQT" secondAttribute="centerX" id="NFu-DV-nPt"/>
+                            <constraint firstAttribute="centerY" secondItem="ujG-DL-HQT" secondAttribute="centerY" constant="-101.5" id="OFv-I6-ELi">
+                                <variation key="widthClass=compact" constant="-102"/>
+                            </constraint>
                             <constraint firstAttribute="centerY" secondItem="G4f-lc-iz0" secondAttribute="centerY" id="d7k-4c-1Qb"/>
                             <constraint firstItem="ujG-DL-HQT" firstAttribute="top" secondItem="G4f-lc-iz0" secondAttribute="bottom" constant="41" id="lg7-b7-zzL"/>
                         </constraints>
@@ -49,6 +49,7 @@
                             <mask key="constraints">
                                 <exclude reference="Amr-Yp-LFB"/>
                                 <exclude reference="d7k-4c-1Qb"/>
+                                <exclude reference="NFu-DV-nPt"/>
                                 <exclude reference="OFv-I6-ELi"/>
                                 <exclude reference="lg7-b7-zzL"/>
                             </mask>
@@ -60,6 +61,7 @@
                             <mask key="constraints">
                                 <include reference="Amr-Yp-LFB"/>
                                 <include reference="d7k-4c-1Qb"/>
+                                <include reference="NFu-DV-nPt"/>
                                 <include reference="OFv-I6-ELi"/>
                                 <include reference="lg7-b7-zzL"/>
                             </mask>
