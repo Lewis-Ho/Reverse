@@ -95,6 +95,7 @@
                     </view>
                     <connections>
                         <outlet property="recordingInProgress" destination="ujG-DL-HQT" id="VcX-X4-S1d"/>
+                        <outlet property="stopRecording" destination="Yl0-iG-feW" id="LNc-vi-1Jk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
