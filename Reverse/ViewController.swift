@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     // ViewDidAppear -- view after using - animation
     // 
 
+    @IBOutlet weak var recordingBtn: UIButton!
     @IBOutlet weak var stopRecording: UIButton!
     @IBOutlet weak var recordingInProgress: UILabel!
     
@@ -37,12 +38,18 @@ class ViewController: UIViewController {
         recordingInProgress.hidden = false
         // Show stop recording button
         stopRecording.hidden = false
+        // Prevent pressed twice
+        recordingBtn.enabled = false
         // Record audio
     }
 
     @IBAction func stopRecording(sender: AnyObject) {
-        // Hide recording text
+        // Hide recording text, stopBtn
         recordingInProgress.hidden = true
+        stopRecording.hidden = true
+        
+        // Enable recordingBtn
+        recordingBtn.enabled = true
         
     }
 }
