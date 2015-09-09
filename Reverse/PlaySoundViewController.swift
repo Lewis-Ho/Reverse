@@ -21,7 +21,8 @@ class PlaySoundViewController: UIViewController {
         var path = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
         var pathUrl = NSURL.fileURLWithPath(path!)
         audioPlayer = AVAudioPlayer(contentsOfURL: pathUrl, error: nil)
-        
+        // Enable audio rate
+        audioPlayer.enableRate = true
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,7 +32,9 @@ class PlaySoundViewController: UIViewController {
     
     @IBAction func playSlow(sender: AnyObject) {
         // Play sound
+        audioPlayer.stop()
         audioPlayer.prepareToPlay()
+        audioPlayer.rate = 0.5
         audioPlayer.play()
     }
 
