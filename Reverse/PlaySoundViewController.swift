@@ -35,6 +35,7 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.stop()
         audioPlayer.prepareToPlay()
         audioPlayer.rate = 0.5
+        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
 
@@ -43,6 +44,7 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.stop()
         audioPlayer.prepareToPlay()
         audioPlayer.rate = 1.5
+        audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
     @IBAction func stopAudio(sender: AnyObject) {
