@@ -38,6 +38,16 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.play()
     }
 
+    @IBAction func playFast(sender: AnyObject) {
+        // Play sound
+        audioPlayer.stop()
+        audioPlayer.prepareToPlay()
+        audioPlayer.rate = 1.5
+        audioPlayer.play()
+    }
+    @IBAction func stopAudio(sender: AnyObject) {
+        audioPlayer.stop()
+    }
     /*
     // MARK: - Navigation
 

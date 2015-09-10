@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Tyw-KQ-aro">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -119,28 +120,76 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTA-5D-8un">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTA-5D-8un">
                                 <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="Button">
+                                <state key="normal" image="Image-1">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="72" y="142" width="46" height="30"/>
-                                </variation>
                                 <connections>
                                     <action selector="playSlow:" destination="1g4-C0-NdG" eventType="touchUpInside" id="SNe-o1-yPb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XIu-kJ-vWy">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Image-1">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="heightClass=regular-widthClass=compact" misplaced="YES">
+                                    <rect key="frame" x="241" y="142" width="100" height="100"/>
+                                </variation>
+                                <connections>
+                                    <action selector="playFast:" destination="1g4-C0-NdG" eventType="touchUpInside" id="pGq-Ty-hRd"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nXN-r5-4oH">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="Stop">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="stopAudio:" destination="1g4-C0-NdG" eventType="touchUpInside" id="yMf-KU-MY0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CTA-5D-8un" firstAttribute="top" secondItem="Na6-Pf-uq2" secondAttribute="bottom" constant="78" id="7hA-Db-mGZ"/>
+                            <constraint firstAttribute="centerX" secondItem="nXN-r5-4oH" secondAttribute="centerX" id="AtK-cZ-F9d"/>
+                            <constraint firstItem="XIu-kJ-vWy" firstAttribute="top" secondItem="Na6-Pf-uq2" secondAttribute="bottom" constant="78" id="E93-YL-Wlv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="XIu-kJ-vWy" secondAttribute="trailing" constant="7" id="Ex8-Oi-Zgm">
+                                <variation key="heightClass=regular-widthClass=compact" constant="27"/>
+                            </constraint>
+                            <constraint firstAttribute="centerY" secondItem="nXN-r5-4oH" secondAttribute="centerY" constant="-234" id="LQ6-uN-s5k"/>
+                            <constraint firstItem="CTA-5D-8un" firstAttribute="leading" secondItem="tds-I8-uZu" secondAttribute="leadingMargin" constant="27" id="xQo-pl-DPC"/>
+                        </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="CTA-5D-8un"/>
+                                <exclude reference="XIu-kJ-vWy"/>
+                                <exclude reference="nXN-r5-4oH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="7hA-Db-mGZ"/>
+                                <exclude reference="xQo-pl-DPC"/>
+                                <exclude reference="E93-YL-Wlv"/>
+                                <exclude reference="Ex8-Oi-Zgm"/>
+                                <exclude reference="AtK-cZ-F9d"/>
+                                <exclude reference="LQ6-uN-s5k"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
                             <mask key="subviews">
                                 <include reference="CTA-5D-8un"/>
+                                <include reference="XIu-kJ-vWy"/>
+                                <include reference="nXN-r5-4oH"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="7hA-Db-mGZ"/>
+                                <include reference="xQo-pl-DPC"/>
+                                <include reference="E93-YL-Wlv"/>
+                                <include reference="Ex8-Oi-Zgm"/>
+                                <include reference="AtK-cZ-F9d"/>
+                                <include reference="LQ6-uN-s5k"/>
                             </mask>
                         </variation>
                     </view>
@@ -169,6 +218,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Image-1" width="100" height="100"/>
         <image name="Mic" width="100" height="100"/>
         <image name="Stop" width="100" height="100"/>
     </resources>
