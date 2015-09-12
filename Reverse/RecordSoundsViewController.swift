@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  RecordSoundsViewController.swift
 //  Reverse
 //
 //  Created by Yiu Cheung Ho on 8/27/15.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RecordSoundsViewController: UIViewController {
     // ViewDidLoad -- initial setup
     // ViewWillAppear -- view before using - hiding/show button
     // ViewDidAppear -- view after using - animation
