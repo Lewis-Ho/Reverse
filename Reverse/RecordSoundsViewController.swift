@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
+
+var audioRecorder:AVAudioRecorder!
 
 class RecordSoundsViewController: UIViewController {
     // ViewDidLoad -- initial setup
@@ -40,7 +43,26 @@ class RecordSoundsViewController: UIViewController {
         stopRecording.hidden = false
         // Prevent pressed twice
         recordingBtn.enabled = false
+        
         // Record audio
+        // Set Path
+        let dirPath = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true)[0] as! String
+        
+        let currentDateTime = NSDate()
+        let formatter = NSDateFormatter()
+        formatter.dateFormat = "ddMMyyyy-HHmmss"
+        let recordingName = formatter.stringFromDate(currentDateTime)+".wav"
+        let pathArray = [dirPath, recordingName]
+        let filePath = NSURL.fileURLWithPathComponents(pathArray)
+        println(filePath)
+        
+        var session = AVAudioSession.sharedInstance()
+        session.setCategory(AVAudioSessionCategoryPlayAndRecord, error: nil)
+        
+        audioRecorder = AVAudioRecorder(URL: filePath, settings: nil, error: nil)
+        audioRecorder.meteringEnabled = true
+        audioRecorder.prepareToRecord()
+        audioRecorder.record()
     }
 
     @IBAction func stopRecording(sender: AnyObject) {
@@ -51,6 +73,10 @@ class RecordSoundsViewController: UIViewController {
         // Enable recordingBtn
         recordingBtn.enabled = true
         
+        // Stop recording
+        audioRecorder.stop()
+        var audioSession = AVAudioSession.sharedInstance()
+        audioSession.setActive(false, error: nil)
     }
 }
 
