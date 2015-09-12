@@ -12,17 +12,23 @@ import AVFoundation
 class PlaySoundViewController: UIViewController {
     
     var audioPlayer:AVAudioPlayer!
+    var engine:AVAudioEngine!
+    var audioFile: AVAudioFile!
+    var recordedAudio:RecordedAudio!
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         // initialize audio
-        var path = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
-        var pathUrl = NSURL.fileURLWithPath(path!)
-        audioPlayer = AVAudioPlayer(contentsOfURL: pathUrl, error: nil)
+        //var path = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3")
+        //var pathUrl = NSURL.fileURLWithPath(path!)
+        audioPlayer = AVAudioPlayer(contentsOfURL: recordedAudio.filePathUrl, error: nil)
         // Enable audio rate
         audioPlayer.enableRate = true
+        engine = AVAudioEngine()
+        audioFile = AVAudioFile(forReading: recordedAudio.filePathUrl, error: nil)
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,6 +53,30 @@ class PlaySoundViewController: UIViewController {
         audioPlayer.currentTime = 0.0
         audioPlayer.play()
     }
+    
+    @IBAction func playChipmunk(sender: UIButton) {
+        var playerNode = AVAudioPlayerNode()
+        var audioEffect = AVAudioUnitTimePitch()
+        audioEffect.pitch = 2000
+        
+        // Keep playerNode and engine clear from last play
+        playerNode.stop()
+        engine.stop()
+        engine.reset()
+        
+        engine.attachNode(playerNode)
+        engine.attachNode(audioEffect)
+
+        // Attach audioEffect to playerNode
+        engine.connect(playerNode, to: audioEffect, format: nil)
+        engine.connect(audioEffect, to: engine.outputNode, format: nil)
+
+        playerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
+
+        engine.startAndReturnError(nil)
+        playerNode.play()
+    }
+    
     @IBAction func stopAudio(sender: AnyObject) {
         audioPlayer.stop()
     }
