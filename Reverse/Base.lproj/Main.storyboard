@@ -17,18 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-lc-iz0">
-                                <rect key="frame" x="250" y="250" width="100" height="100"/>
-                                <state key="normal" image="Mic">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
-                                    <rect key="frame" x="150" y="250" width="100" height="101"/>
-                                </variation>
-                                <connections>
-                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSh-kD-ARV"/>
-                                </connections>
-                            </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recording" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ujG-DL-HQT">
                                 <rect key="frame" x="0.0" y="-21" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -48,7 +36,18 @@
                                 </variation>
                                 <connections>
                                     <action selector="stopRecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FMc-ct-5Nu"/>
-                                    <segue destination="1g4-C0-NdG" kind="show" id="Nag-GF-uhE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G4f-lc-iz0">
+                                <rect key="frame" x="250" y="250" width="100" height="100"/>
+                                <state key="normal" image="Mic">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <variation key="widthClass=compact" ambiguous="YES" misplaced="YES">
+                                    <rect key="frame" x="150" y="250" width="100" height="101"/>
+                                </variation>
+                                <connections>
+                                    <action selector="recordAudio:" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSh-kD-ARV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -102,6 +101,7 @@
                         <outlet property="recordingBtn" destination="G4f-lc-iz0" id="QC6-Ot-83z"/>
                         <outlet property="recordingInProgress" destination="ujG-DL-HQT" id="VcX-X4-S1d"/>
                         <outlet property="stopRecording" destination="Yl0-iG-feW" id="LNc-vi-1Jk"/>
+                        <segue destination="1g4-C0-NdG" kind="show" identifier="stopRecording" id="qf8-Nd-aKN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -150,9 +150,19 @@
                                     <action selector="stopAudio:" destination="1g4-C0-NdG" eventType="touchUpInside" id="yMf-KU-MY0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Goa-lX-vFv">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunk:" destination="1g4-C0-NdG" eventType="touchUpInside" id="0Br-et-kag"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Goa-lX-vFv" firstAttribute="top" secondItem="CTA-5D-8un" secondAttribute="bottom" constant="99" id="2ew-BT-GKB"/>
                             <constraint firstItem="CTA-5D-8un" firstAttribute="top" secondItem="Na6-Pf-uq2" secondAttribute="bottom" constant="78" id="7hA-Db-mGZ"/>
                             <constraint firstAttribute="centerX" secondItem="nXN-r5-4oH" secondAttribute="centerX" id="AtK-cZ-F9d"/>
                             <constraint firstItem="XIu-kJ-vWy" firstAttribute="top" secondItem="Na6-Pf-uq2" secondAttribute="bottom" constant="78" id="E93-YL-Wlv"/>
@@ -160,6 +170,7 @@
                                 <variation key="heightClass=regular-widthClass=compact" constant="27"/>
                             </constraint>
                             <constraint firstAttribute="centerY" secondItem="nXN-r5-4oH" secondAttribute="centerY" constant="-234" id="LQ6-uN-s5k"/>
+                            <constraint firstItem="Goa-lX-vFv" firstAttribute="leading" secondItem="tds-I8-uZu" secondAttribute="leadingMargin" constant="27" id="v4x-5w-8uA"/>
                             <constraint firstItem="CTA-5D-8un" firstAttribute="leading" secondItem="tds-I8-uZu" secondAttribute="leadingMargin" constant="27" id="xQo-pl-DPC"/>
                         </constraints>
                         <variation key="default">
@@ -167,12 +178,15 @@
                                 <exclude reference="CTA-5D-8un"/>
                                 <exclude reference="XIu-kJ-vWy"/>
                                 <exclude reference="nXN-r5-4oH"/>
+                                <exclude reference="Goa-lX-vFv"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="7hA-Db-mGZ"/>
                                 <exclude reference="xQo-pl-DPC"/>
                                 <exclude reference="E93-YL-Wlv"/>
                                 <exclude reference="Ex8-Oi-Zgm"/>
+                                <exclude reference="2ew-BT-GKB"/>
+                                <exclude reference="v4x-5w-8uA"/>
                                 <exclude reference="AtK-cZ-F9d"/>
                                 <exclude reference="LQ6-uN-s5k"/>
                             </mask>
@@ -182,12 +196,15 @@
                                 <include reference="CTA-5D-8un"/>
                                 <include reference="XIu-kJ-vWy"/>
                                 <include reference="nXN-r5-4oH"/>
+                                <include reference="Goa-lX-vFv"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="7hA-Db-mGZ"/>
                                 <include reference="xQo-pl-DPC"/>
                                 <include reference="E93-YL-Wlv"/>
                                 <include reference="Ex8-Oi-Zgm"/>
+                                <include reference="2ew-BT-GKB"/>
+                                <include reference="v4x-5w-8uA"/>
                                 <include reference="AtK-cZ-F9d"/>
                                 <include reference="LQ6-uN-s5k"/>
                             </mask>
@@ -221,5 +238,6 @@
         <image name="Image-1" width="100" height="100"/>
         <image name="Mic" width="100" height="100"/>
         <image name="Stop" width="100" height="100"/>
+        <image name="chipmunk" width="100" height="100"/>
     </resources>
 </document>
